@@ -23,3 +23,15 @@ def dec_to_bin():
             bin_str = '0' + bin_str
         d = d // 2
     print(bin_str)
+
+
+def NWD():
+    a = int(input("Wpisz liczbę a: "))
+    b = int(input("Wpisz liczbę b: "))
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+    dec_to_bin()
+    print(a)

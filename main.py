@@ -1,5 +1,6 @@
-import schematy_blokowe
+import rekurencja, sys
 
 
 if __name__ == '__main__':
-    schematy_blokowe.dec_to_bin()
+    sys.setrecursionlimit(100000)
+    print(rekurencja.factorial_iter(3000))
