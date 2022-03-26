@@ -23,4 +23,3 @@ def dec_to_bin():
             bin_str = '0' + bin_str
         d = d // 2
     print(bin_str)
-    return
