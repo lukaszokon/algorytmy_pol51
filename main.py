@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     data = sortowanie.prepare_random_data(DATA_SIZE)
     print(data)
-    sortowanie.bubble_sort(data)
+    sortowanie.bubble_sort_4(data)
     print(data)
 
     '''
