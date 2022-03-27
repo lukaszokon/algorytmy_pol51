@@ -5,15 +5,15 @@ import wyszukiwanie
 
 
 if __name__ == '__main__':
-    DATA_SIZE = 1000
-    NUMBER_OF_TEST = 10
+    DATA_SIZE = 10000000
+    NUMBER_OF_TEST = 100
 
     data = wyszukiwanie.prepare_data(DATA_SIZE)
 
     pomiary = []
     for i in range(NUMBER_OF_TEST):
         start_time = datetime.datetime.now()
-        wyszukiwanie.find_number(random.randint(1, DATA_SIZE * 10), data)
+        wyszukiwanie.find_number_bisect(random.randint(1, DATA_SIZE * 10), data)
         end_time = datetime.datetime.now()
         pomiary.append(end_time - start_time)
     suma = datetime.timedelta()
