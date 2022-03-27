@@ -1,3 +1,4 @@
+import bisect
 import random
 
 
@@ -17,6 +18,13 @@ def find_number(n, number_list):
             return index
         index += 1
     return None
+
+
+def find_number_with_lib_bisect(n, number_list):
+    i = bisect.bisect_left(number_list, n)
+    if i != len(number_list) and number_list[i] == n:
+        return i
+    return False
 
 
 def find_number_bisect(n, number_list):
