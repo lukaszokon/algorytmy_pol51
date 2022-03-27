@@ -10,10 +10,13 @@ if __name__ == '__main__':
     DATA_SIZE = 10
     NUMBER_OF_TEST = 100
 
-    data = sortowanie.prepare_random_data(DATA_SIZE)
-    print(data)
-    sortowanie.bubble_sort_4(data)
-    print(data)
+    sorted_list, unsorted_list, sorted_reversed_list, almost_sorted_list = sortowanie.prepare_number_lists(DATA_SIZE)
+    print(sorted_list)
+    print(unsorted_list)
+    print(sorted_reversed_list)
+    print(almost_sorted_list)
+    # sortowanie.binary_sort(data)
+    # print(data)
 
     '''
     DATA_SIZE = 800000
