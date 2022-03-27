@@ -10,11 +10,8 @@ if __name__ == '__main__':
     DATA_SIZE = 10
     NUMBER_OF_TEST = 100
 
-    sorted_list, unsorted_list, sorted_reversed_list, almost_sorted_list = sortowanie.prepare_number_lists(DATA_SIZE)
-    print(sorted_list)
-    print(unsorted_list)
-    print(sorted_reversed_list)
-    print(almost_sorted_list)
+    sortowanie.test_sorting_function(sortowanie.bubble_sort_1, 100, 100)
+
     # sortowanie.binary_sort(data)
     # print(data)
 
