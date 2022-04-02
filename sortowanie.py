@@ -37,14 +37,14 @@ def test_sorting_function(sorting_function, data_number, number_of_tests):
                         number=number_of_tests))
 
 
-def bubble_sort_1(list_of_numbers):
-    number_of_elements = len(list_of_numbers)
-    for i in range(number_of_elements - 1):
-        for j in range(number_of_elements - 1):
-            if list_of_numbers[j] > list_of_numbers[j + 1]:
-                temp = list_of_numbers[j]
-                list_of_numbers[j] = list_of_numbers[j + 1]
-                list_of_numbers[j + 1] = temp
+def bubble_sort_1(list_of_numbers):  # 4n^2 - 8n + 5 -> O(n^2)
+    number_of_elements = len(list_of_numbers)  # 1
+    for i in range(number_of_elements - 1):  # n - 1, (n - 1) * (4n - 4) = 4n^2 - 4n - 4n +4= 4n^2 - 8n + 4
+        for j in range(number_of_elements - 1):  # n - 1, (n - 1) * 4 = 4n - 4
+            if list_of_numbers[j] > list_of_numbers[j + 1]:  # 1 , 4 * 1 = 4
+                temp = list_of_numbers[j]  # 1
+                list_of_numbers[j] = list_of_numbers[j + 1]  # 1
+                list_of_numbers[j + 1] = temp  # 1
 
 
 def bubble_sort_2(list_of_numbers):
@@ -101,7 +101,17 @@ def insert_sort(list_of_numbers):
             if j == 0:
                 break
             else:
-                if list_of_numbers[j] < list_of_numbers[j-1]:
-                    list_of_numbers[j], list_of_numbers[j-1] = list_of_numbers[j-1], list_of_numbers[j]
+                if list_of_numbers[j] < list_of_numbers[j - 1]:
+                    list_of_numbers[j], list_of_numbers[j - 1] = list_of_numbers[j - 1], list_of_numbers[j]
                 else:
                     break
+
+
+def merge_sort_inner(start_index, end_index, list_of_numbers):
+    pass
+
+
+def merge_sort(list_of_numbers):
+    start_index = 0
+    end_index = len(list_of_numbers) - 1
+    merge_sort_inner(start_index, end_index, list_of_numbers)
