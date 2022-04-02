@@ -4,33 +4,41 @@ import random
 
 import wyszukiwanie, sortowanie
 
+def test_sort_for_10_numbers(sort_function):
+    DATA_SIZE = 10
+    sorted_list, unsorted_list, sorted_reversed_list, almost_sorted_list = sortowanie.prepare_number_lists(DATA_SIZE)
+    print(sorted_list)
+    sort_function(sorted_list)
+    print(sorted_list)
+
+    print(unsorted_list)
+    sort_function(unsorted_list)
+    print(unsorted_list)
+
+    print(sorted_reversed_list)
+    sort_function(sorted_reversed_list)
+    print(sorted_reversed_list)
+
+    print(almost_sorted_list)
+    sort_function(almost_sorted_list)
+    print(almost_sorted_list)
+
 
 if __name__ == '__main__':
 
-    DATA_SIZE = 10
-    NUMBER_OF_TEST = 100
+    DATA_SIZE = 1000
+    NUMBER_OF_TEST = 10
 
-    sortowanie.test_sorting_function(sortowanie.bubble_sort_1, 100, 100)
+    # test_sort_for_10_numbers(sortowanie.insert_sort)
+    print("bubble_sort_2")
+    sortowanie.test_sorting_function(sortowanie.bubble_sort_2, DATA_SIZE, NUMBER_OF_TEST)
+    print("bubble_sort_3")
+    sortowanie.test_sorting_function(sortowanie.bubble_sort_3, DATA_SIZE, NUMBER_OF_TEST)
+    print("bubble_sort_4")
+    sortowanie.test_sorting_function(sortowanie.bubble_sort_4, DATA_SIZE, NUMBER_OF_TEST)
+    print("insert_sort")
+    sortowanie.test_sorting_function(sortowanie.insert_sort, DATA_SIZE, NUMBER_OF_TEST)
 
-    # sortowanie.binary_sort(data)
-    # print(data)
 
-    '''
-    DATA_SIZE = 800000
-    NUMBER_OF_TEST = 100
 
-    data = wyszukiwanie.prepare_data(DATA_SIZE)
-
-    pomiary = []
-    for i in range(NUMBER_OF_TEST):
-        start_time = datetime.datetime.now()
-        wyszukiwanie.find_number_with_lib_bisect(random.randint(1, DATA_SIZE * 10), data)
-        end_time = datetime.datetime.now()
-        pomiary.append(end_time - start_time)
-    suma = datetime.timedelta()
-    for pomiar in pomiary:
-        suma = suma + pomiar
-    suma = suma / NUMBER_OF_TEST
-    print(suma)
-    '''
 
