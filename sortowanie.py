@@ -107,11 +107,62 @@ def insert_sort(list_of_numbers):
                     break
 
 
-def merge_sort_inner(start_index, end_index, list_of_numbers):
-    pass
+def merge_sort_piotr(list_of_numbers):
+    # TODO Dziel na mniejsze listy z wykorzystaniem rekurencji
+
+    if len(list_of_numbers) > 1:
+        center = len(list_of_numbers) // 2
+        left_section = list_of_numbers[:center]
+        right_section = list_of_numbers[center:]
+
+        merge_sort(left_section)
+        merge_sort(right_section)
+
+        a = 0
+        b = 0
+        c = 0
+        # TODO Porównaj listy i scal
+        while a < len(left_section) and b < len(right_section):
+            if left_section[a] < right_section[b]:
+                list_of_numbers[c] = left_section[a]
+                a += 1
+            else:
+                list_of_numbers[c] = right_section[b]
+                b += 1
+            c += 1
+
+
+def merge_sort_inner(start_index, end_index, list_of_numbers, temp_list):
+    middle_index = (start_index + end_index + 1) // 2
+    if middle_index - 1 - start_index > 0:
+        merge_sort_inner(start_index, middle_index - 1, list_of_numbers, temp_list)
+    if end_index - middle_index > 0:
+        merge_sort_inner(middle_index, end_index, list_of_numbers, temp_list)
+
+# list_of_number jest podzielony na 2 części od start_index do middle - 1 i od middle do end_indexu
+# lewa część listy zaczyna się od start_indexu
+    first_iterator = start_index
+# prawa część listy zaczyna się od middle_indexu
+    second_iterator = middle_index
+
+# scalamy obie listy przy pomocy listy temp od startowego do end indexu
+    for i in range(start_index, end_index + 1):
+        #sprawdzamy, która liczba pomiędzy elementem wskazywanym przez first_iterator a elementem wskazywanym przez second
+        # jest mniejszy ten jest dodawany do temp listy i odpowiadający iterator jest inkrementowany
+        if (first_iterator == middle_index) or \
+                (second_iterator <= end_index and list_of_numbers[first_iterator] > list_of_numbers[second_iterator]):
+            temp_list[i] = list_of_numbers[second_iterator]
+            second_iterator += 1
+        else:
+            temp_list[i] = list_of_numbers[first_iterator]
+            first_iterator += 1
+
+    for i in range(start_index, end_index + 1):
+        list_of_numbers[i] = temp_list[i]
 
 
 def merge_sort(list_of_numbers):
     start_index = 0
     end_index = len(list_of_numbers) - 1
-    merge_sort_inner(start_index, end_index, list_of_numbers)
+    temp_list = [None] * len(list_of_numbers)
+    merge_sort_inner(start_index, end_index, list_of_numbers, temp_list)

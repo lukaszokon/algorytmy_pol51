@@ -25,19 +25,22 @@ def test_sort_for_10_numbers(sort_function):
 
 
 if __name__ == '__main__':
+    # test_sort_for_10_numbers(sortowanie.merge_sort)
 
-    DATA_SIZE = 1000
+
+    DATA_SIZE = 20000
     NUMBER_OF_TEST = 10
 
-    # test_sort_for_10_numbers(sortowanie.insert_sort)
-    print("bubble_sort_2")
-    sortowanie.test_sorting_function(sortowanie.bubble_sort_2, DATA_SIZE, NUMBER_OF_TEST)
-    print("bubble_sort_3")
-    sortowanie.test_sorting_function(sortowanie.bubble_sort_3, DATA_SIZE, NUMBER_OF_TEST)
+    # print("bubble_sort_2")
+    # sortowanie.test_sorting_function(sortowanie.bubble_sort_2, DATA_SIZE, NUMBER_OF_TEST)
+    # print("bubble_sort_3")
+    # sortowanie.test_sorting_function(sortowanie.bubble_sort_3, DATA_SIZE, NUMBER_OF_TEST)
     print("bubble_sort_4")
     sortowanie.test_sorting_function(sortowanie.bubble_sort_4, DATA_SIZE, NUMBER_OF_TEST)
     print("insert_sort")
     sortowanie.test_sorting_function(sortowanie.insert_sort, DATA_SIZE, NUMBER_OF_TEST)
+    print("merge_sort")
+    sortowanie.test_sorting_function(sortowanie.merge_sort, DATA_SIZE, NUMBER_OF_TEST)
 
 
 
