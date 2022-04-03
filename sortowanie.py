@@ -190,18 +190,20 @@ def quick_sort_inner(list_of_numbers, start_index, end_index):
         pivot = list_of_numbers[start_index]
         pivot_index = start_index
         iterator = end_index
-        while pivot_index != iterator and start_index <= iterator <= end_index:
+        while pivot_index != iterator:
             if iterator < pivot_index:
                 if pivot < list_of_numbers[iterator]:
                     list_of_numbers[iterator], list_of_numbers[pivot_index] = list_of_numbers[pivot_index], list_of_numbers[
                         iterator]
-                    pivot, iterator = iterator, pivot
+                    pivot_index, iterator = iterator, pivot_index
+                    continue
                 iterator += 1
             else:
                 if pivot > list_of_numbers[iterator]:
                     list_of_numbers[iterator], list_of_numbers[pivot_index] = list_of_numbers[pivot_index], list_of_numbers[
                         iterator]
-                    pivot, iterator = iterator, pivot
+                    pivot_index, iterator = iterator, pivot_index
+                    continue
                 iterator -= 1
 
         quick_sort_inner(list_of_numbers, start_index, pivot_index - 1)
