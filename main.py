@@ -34,21 +34,25 @@ if __name__ == '__main__':
     # for i in range(6):
     #     print(stack.pop())
     #
-    # queue = struktury_danych.Queue()
     # print()
-    # for i in range(5):
-    #     queue.insert(i)
-    #
-    # for i in range(5):
-    #     print(queue.delete())
+
+    my_list = struktury_danych.MyList()
+    for i in range(5):
+        my_list.insert(i)
+
+    print(1 in my_list)
+
+    # for i in range(6):
+    #     print(my_list.delete())
+
 
 
 
     # test_sort_for_10_numbers(sortowanie.merge_sort)
 
-    sys.setrecursionlimit(999999999)
-    DATA_SIZE = 800
-    NUMBER_OF_TEST = 100
+    # sys.setrecursionlimit(999999999)
+    # DATA_SIZE = 800
+    # NUMBER_OF_TEST = 100
 
     # print("bubble_sort_2")
     # sortowanie.test_sorting_function(sortowanie.bubble_sort_2, DATA_SIZE, NUMBER_OF_TEST)
@@ -58,10 +62,10 @@ if __name__ == '__main__':
     # sortowanie.test_sorting_function(sortowanie.bubble_sort_4, DATA_SIZE, NUMBER_OF_TEST)
     # print("insert_sort")
     # sortowanie.test_sorting_function(sortowanie.insert_sort, DATA_SIZE, NUMBER_OF_TEST)
-    print("quick_sort")
-    sortowanie.test_sorting_function(sortowanie.quick_sort, DATA_SIZE, NUMBER_OF_TEST)
-    print("merge_sort")
-    sortowanie.test_sorting_function(sortowanie.merge_sort, DATA_SIZE, NUMBER_OF_TEST)
+    # print("quick_sort")
+    # sortowanie.test_sorting_function(sortowanie.quick_sort, DATA_SIZE, NUMBER_OF_TEST)
+    # print("merge_sort")
+    # sortowanie.test_sorting_function(sortowanie.merge_sort, DATA_SIZE, NUMBER_OF_TEST)
 
 
 
