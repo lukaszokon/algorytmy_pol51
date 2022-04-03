@@ -139,15 +139,15 @@ def merge_sort_inner(start_index, end_index, list_of_numbers, temp_list):
     if end_index - middle_index > 0:
         merge_sort_inner(middle_index, end_index, list_of_numbers, temp_list)
 
-# list_of_number jest podzielony na 2 części od start_index do middle - 1 i od middle do end_indexu
-# lewa część listy zaczyna się od start_indexu
+    # list_of_number jest podzielony na 2 części od start_index do middle - 1 i od middle do end_indexu
+    # lewa część listy zaczyna się od start_indexu
     first_iterator = start_index
-# prawa część listy zaczyna się od middle_indexu
+    # prawa część listy zaczyna się od middle_indexu
     second_iterator = middle_index
 
-# scalamy obie listy przy pomocy listy temp od startowego do end indexu
+    # scalamy obie listy przy pomocy listy temp od startowego do end indexu
     for i in range(start_index, end_index + 1):
-        #sprawdzamy, która liczba pomiędzy elementem wskazywanym przez first_iterator a elementem wskazywanym przez second
+        # sprawdzamy, która liczba pomiędzy elementem wskazywanym przez first_iterator a elementem wskazywanym przez second
         # jest mniejszy ten jest dodawany do temp listy i odpowiadający iterator jest inkrementowany
         if (first_iterator == middle_index) or \
                 (second_iterator <= end_index and list_of_numbers[first_iterator] > list_of_numbers[second_iterator]):
@@ -166,3 +166,43 @@ def merge_sort(list_of_numbers):
     end_index = len(list_of_numbers) - 1
     temp_list = [None] * len(list_of_numbers)
     merge_sort_inner(start_index, end_index, list_of_numbers, temp_list)
+
+
+def selection_sort(list_of_numbers):
+    n = len(list_of_numbers)
+    for i in range(n - 1):
+        min_value = list_of_numbers[i]
+        min_index = i
+        for j in range(i + 1, n):
+            if list_of_numbers[j] < min_value:
+                min_value = list_of_numbers[j]
+                min_index = j
+        list_of_numbers[i], list_of_numbers[min_index] = list_of_numbers[min_index], list_of_numbers[i]
+
+
+def quick_sort(list_of_numbers):
+    n = len(list_of_numbers)
+    quick_sort_inner(list_of_numbers, 0, n - 1)
+
+
+def quick_sort_inner(list_of_numbers, start_index, end_index):
+    if start_index < end_index:
+        pivot = list_of_numbers[start_index]
+        pivot_index = start_index
+        iterator = end_index
+        while pivot_index != iterator and start_index <= iterator <= end_index:
+            if iterator < pivot_index:
+                if pivot < list_of_numbers[iterator]:
+                    list_of_numbers[iterator], list_of_numbers[pivot_index] = list_of_numbers[pivot_index], list_of_numbers[
+                        iterator]
+                    pivot, iterator = iterator, pivot
+                iterator += 1
+            else:
+                if pivot > list_of_numbers[iterator]:
+                    list_of_numbers[iterator], list_of_numbers[pivot_index] = list_of_numbers[pivot_index], list_of_numbers[
+                        iterator]
+                    pivot, iterator = iterator, pivot
+                iterator -= 1
+
+        quick_sort_inner(list_of_numbers, start_index, pivot_index - 1)
+        quick_sort_inner(list_of_numbers, pivot_index + 1, end_index)
