@@ -44,6 +44,7 @@ class MyList:
         def __init__(self, value):
             self.value = value
             self.next = None
+            self.prev = None
 
     def __init__(self):
         self.head = None
@@ -76,7 +77,18 @@ class MyList:
         if element:
             self.head = element.next
             if not self.head:
-                self.tail = self.head
+                self.tail = None
             return element.value
         else:
             return None
+
+
+from heapq import heappush, heappop
+
+
+def heapsort(list_of_numbers):
+    h = []
+    for value in list_of_numbers:
+        heappush(h, value)
+    for i in range(len(h)):
+        list_of_numbers[i] = heappop(h)
